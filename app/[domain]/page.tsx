@@ -203,11 +203,26 @@ export default async function IndexPage({
             &quot;Verify DNS Record&quot;.
           </p>
           <p className="mt-6 max-w-lg text-sm">
-            If you like this project, consider{" "}
+            This service is made possible by the community-handles project. Please consider{" "}
             <a href="https://github.com/sponsors/mozzius" className="underline">
-              sponsoring my work
+              sponsoring the developer
             </a>
-            .
+            !
+          </p>
+          </p>
+          <p className="mt-6 max-w-lg text-sm">
+            As the developer of qsmp.social, maintaining the platform comes with costs{" "}
+            <a href="https://ko-fi.com/misclassify" className="underline">
+              Any donations are greatly appreciated on my Ko-Fi!
+            </a>
+            !
+          </p>
+          <p className="mt-6 max-w-lg text-sm">
+            qsmp.social is not affiliated with Quackity, Quackity Studios, or QSMP. Run by{" "}
+            <a href="https://bsky.app/profile/thehornyarc.bsky.social" className="underline">
+              @thehornyarc
+            </a>
+            ! 🫶🏼
           </p>
         </Stage>
       </div>
