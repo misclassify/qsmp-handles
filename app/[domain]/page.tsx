@@ -1,4 +1,4 @@
-import { AppBskyActorDefs } from "@atproto/api"
+import type { AppBskyActorDefs } from "@atproto/api"
 import { Check, X } from "lucide-react"
 
 import { agent } from "@/lib/atproto"
@@ -59,9 +59,7 @@ export default async function IndexPage({
       }
       if (!error1) {
         // regex: (alphanumeric, -, _).(domain)
-        const validHandle = newHandle.match(
-          new RegExp(`^[a-zA-Z0-9-_]+.${domain}$`)
-        )
+        const validHandle = newHandle.match(new RegExp(`^[a-zA-Z0-9-_]+.${domain}$`))
         if (validHandle) {
           try {
             const handle = newHandle.replace(`.${domain}`, "")
@@ -122,21 +120,11 @@ export default async function IndexPage({
           <form>
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <div className="flex w-full max-w-sm items-center space-x-2">
-                {newHandle && (
-                  <input type="hidden" name="new-handle" value="" />
-                )}
-                <Input
-                  type="text"
-                  name="handle"
-                  placeholder="example.bsky.social"
-                  defaultValue={handle}
-                  required
-                />
+                {newHandle && <input type="hidden" name="new-handle" value="" />}
+                <Input type="text" name="handle" placeholder="example.bsky.social" defaultValue={handle} required />
                 <Button type="submit">Submit</Button>
               </div>
-              <p className="text-sm text-muted-foreground">
-                Enter your current handle, not including the @
-              </p>
+              <p className="text-sm text-muted-foreground">Enter your current handle, not including the @</p>
               {error1 && (
                 <p className="flex flex-row items-center gap-2 text-sm text-red-500">
                   <X className="size-4" /> Handle not found - please try again
@@ -158,17 +146,11 @@ export default async function IndexPage({
             <input type="hidden" name="handle" value={handle} />
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <div className="flex w-full max-w-sm items-center space-x-2">
-                <Input
-                  type="text"
-                  name="new-handle"
-                  placeholder={`example.${domain}`}
-                  defaultValue={newHandle}
-                />
+                <Input type="text" name="new-handle" placeholder={`example.${domain}`} defaultValue={newHandle} />
                 <Button type="submit">Submit</Button>
               </div>
               <p className="text-sm text-muted-foreground">
-                Enter the {domain} handle that you would like to have, not
-                including the @
+                Enter the {domain} handle that you would like to have, not including the @
               </p>
               {error2 && (
                 <p className="text-sm text-red-500">
@@ -190,17 +172,10 @@ export default async function IndexPage({
             </div>
           </form>
         </Stage>
-        <Stage
-          title="Change your handle within the Bluesky app"
-          number={3}
-          disabled={!newHandle || !!error2}
-          last
-        >
+        <Stage title="Change your handle within the Bluesky app" number={3} disabled={!newHandle || !!error2} last>
           <p className="max-w-lg text-sm">
-            Go to Settings {">"} Advanced {">"} Change my handle. Select &quot;I
-            have my own domain&quot; and enter{" "}
-            {newHandle ? `"${newHandle}"` : "your new handle"}. Finally, tap
-            &quot;Verify DNS Record&quot;.
+            Go to Settings {">"} Advanced {">"} Change my handle. Select &quot;I have my own domain&quot; and enter{" "}
+            {newHandle ? `"${newHandle}"` : "your new handle"}. Finally, tap &quot;Verify DNS Record&quot;.
           </p>
           <p className="mt-6 max-w-lg text-sm">
             This service is made possible by the community-handles project. Please consider{" "}
@@ -208,7 +183,6 @@ export default async function IndexPage({
               sponsoring the developer
             </a>
             !
-          </p>
           </p>
           <p className="mt-6 max-w-lg text-sm">
             As the developer of qsmp.social, maintaining the platform comes with costs{" "}
@@ -275,3 +249,4 @@ const RESERVED = [
   "New",
   "Babys",
 ].map((x) => x.toLowerCase())
+
